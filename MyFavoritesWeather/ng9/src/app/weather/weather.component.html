@@ -1,0 +1,20 @@
+<div class="modal-body row">
+  <div class="col-md-9">
+    <input type="text" required #cityValue placeholder="search city" />
+    <button (click)="searchCity(cityValue)">search city</button>
+    <div *ngIf="selectedCity">
+      <label>weather for: {{nameSelected}}</label><br />
+      <label>feels like: {{selectedCity.WeatherText}}</label><br />
+      <label>temprature is: {{selectedCity.Temperature.Metric.Value}}</label>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <ul *ngIf="cities">
+      <li *ngFor="let city of cities">
+        <label (click)="getCurrentWeather(city)">{{city.LocalizedName}}</label>
+        <img (click)="addToFavorites(city)" src="../../assets/download.png" width="20" height="20" style="background-image:none;" />
+        <!--<button class="button" (click)="addToFavorites(city)">add to favorites</button>-->
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="modal-body row">
+  <p>Favorites Cities</p>
+  <div class="col-md-9">
+    <div *ngIf="selectedCity">
+      <label>weather for: {{nameSelected}}</label><br />
+      <label>feels like: {{selectedCity.WeatherText}}</label><br />
+      <label>temprature is: {{selectedCity.Temperature.Metric.Value}}</label>
+    </div>
+    <div class="col-md-3">
+      <ul *ngIf="favoritesCities">
+        <li *ngFor="let city of favoritesCities">
+          <label (click)="getCurrentWeather(city)">{{city.LocalizedName}}</label>
+          <img (click)="removeFromFavorites(city)" src="../../assets/delete-xxl.png" width="20" height="20" style="background-image:none;" />
+          <!--<button class="button" (click)="removeFromFavorites(city)">remove from favorites</button>-->
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
